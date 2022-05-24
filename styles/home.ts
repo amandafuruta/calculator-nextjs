@@ -24,16 +24,15 @@ export const HomeStyle = styled.section`
 
         h1{
             color:#fff;
-            font-size: 50px;
+            margin-right: 15px;
         }
 
-        span{
+        .span{
             color: #375435;
         }
     }
 
     .btn{
-        font-size: 30px;
         border-radius: 50px;
         max-width: 200px;
         width: 100%;
@@ -43,6 +42,32 @@ export const HomeStyle = styled.section`
         &:hover{
             background-color: #375435;
             color: #fff;
+        }
+    }
+
+    @media(max-width: 996px){
+
+        .card{
+            padding: 30px 10px;
+        }
+    }
+
+    @media only screen and (max-width: 794px){
+        padding: 80px;
+    }
+
+    @media only screen and (max-width: 635px){
+        padding: 45px;
+    }
+
+    @media(max-width: 612px){
+        .card{
+            flex-direction: column;
+            padding: 30px 0;
+
+            h1{
+            margin-right: 0;
+            }
         }
     }
    

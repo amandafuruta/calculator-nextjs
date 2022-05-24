@@ -1,0 +1,68 @@
+.lightgrey{
+    background-color: #616161;
+}
+
+.darkgrey{
+    background-color: #272727;
+}
+
+.green{
+    background-color: #E6A845;
+}
+
+.title{
+    font-size: 50px;
+}
+
+.btnstart{
+    font-size: 30px;
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.space_around{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 5px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 980px){
+    .title{
+        font-size: 45px;
+    }
+}
+
+@media only screen and (max-width: 919px){
+    .title{
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 856px){
+    .title{
+        font-size: 35px;
+    }
+}
+
+
+
+@media only screen and (max-width: 733px){
+
+    .btnstart{
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 671px){
+   
+}

@@ -1,6 +1,9 @@
+import Link from "next/link"
 import { useState } from "react"
 
 import StyleCalculate from "../styles/calculate"
+import { BsArrowLeft } from "react-icons/bs";
+
 
 export default function Calculate(){
     var total = 0
@@ -22,12 +25,12 @@ export default function Calculate(){
             if(n1 == 0){
                 setN1(parseInt(valor))
                 setAux("0")
+            }else{
+                operate(valor)
             }
-            
-            
+                      
         }else{
-            operate(valor)
-            
+            operate(valor)           
         }
     }
 
@@ -42,12 +45,31 @@ export default function Calculate(){
             setN1(total)
             setTotalVar(total)
             n2 = 0
+        }else if( operation == "-"){
+            setAux("0")
+            total = (n1Var - n2)
+            setN1(total)
+            setTotalVar(total)
+            n2 = 0
+        }else if( operation == "*"){
+            setAux("0")
+            total = (n1Var * n2)
+            setN1(total)
+            setTotalVar(total)
+            n2 = 0
+        }else if( operation == "/"){
+            setAux("0")
+            total = (n1Var / n2)
+            setN1(total)
+            setTotalVar(total)
+            n2 = 0
         }
     }
 
 
     return(
         <StyleCalculate>
+            <Link href="/"><a><BsArrowLeft color="#fff" size={20}/> Back</a></Link>
             <div className="calculator">
                 {
                     totalvar == 0 ?
@@ -57,25 +79,25 @@ export default function Calculate(){
                 }
 
                 <div className="buttons">
-                    <div className="row">
-                        <button onClick={()=>setAux("")} className="lightgrey">AC</button>
-                        <button onClick={()=>{ buildOperation( naux, "/" ) }} className="lightgrey">/</button>
-                        <button  className="lightgrey">*</button>
-                        <button  className="lightgrey">-</button>
+                    <div className="space_around">
+                        <button onClick={()=>{setTotalVar(0), setN1(0)}} className="lightgrey">AC</button>
+                        <button onClick={()=>{ n1Var == 0 ? buildOperation( naux, "/" ) : operate(naux), setOperation("/")}} className="lightgrey">/</button>
+                        <button onClick={()=>{ n1Var == 0 ? buildOperation( naux, "*" ) : operate(naux), setOperation("*")}}  className="lightgrey">*</button>
                     </div>
 
                     <div className="row">
                         <button onClick={()=>montar("7")} className="darkgrey">7</button>
                         <button onClick={()=>montar("8")} className="darkgrey">8</button>
                         <button onClick={()=>montar("9")} className="darkgrey">9</button>
-                        <button onClick={()=>{ n1Var == 0 ? buildOperation( naux, "+" ) : operate(naux), setOperation("+")}} className="lightgrey">+</button>
+                        <button onClick={()=>{ n1Var == 0 ? buildOperation( naux, "-" ) : operate(naux), setOperation("-")}}  className="lightgrey">-</button>
+
                     </div>
 
                     <div className="row">
                         <button  onClick={()=>montar("4")} className="darkgrey">4</button>
                         <button onClick={()=>montar("5")} className="darkgrey">5</button>
                         <button onClick={()=>montar("6")} className="darkgrey">6</button>
-                        <button className="lightgrey">.</button>
+                        <button onClick={()=>{ n1Var == 0 ? buildOperation( naux, "+" ) : operate(naux), setOperation("+")}} className="lightgrey">+</button>
                     </div>
 
                     <div className="row">
